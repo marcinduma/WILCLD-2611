@@ -1,0 +1,856 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Welcome to the 'Containerized Applications on Hybrid Cloud Environments' Lab.">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
+    
+    
+      
+        <title>Connect Cluster in AWS to Hybrid Network - Cisco Live 2021 HOLCLD-2101</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2c0c5eaf.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#connect-aws-eks-kubernetes-cluster-to-hybrid-network" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Cisco Live 2021 HOLCLD-2101" class="md-header__button md-logo" aria-label="Cisco Live 2021 HOLCLD-2101" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cisco Live 2021 HOLCLD-2101
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Connect Cluster in AWS to Hybrid Network
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cisco Live 2021 HOLCLD-2101" class="md-nav__button md-logo" aria-label="Cisco Live 2021 HOLCLD-2101" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Cisco Live 2021 HOLCLD-2101
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Lab Access
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Lab Access" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Lab Access
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LAB_access/" class="md-nav__link">
+        Accessing the Lab Environment
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Cisco Container Platform
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Cisco Container Platform" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Cisco Container Platform
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ccp_exploring/" class="md-nav__link">
+        Explore Cisco Container Platform (CCP)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ccp_create_cluster-onprem/" class="md-nav__link">
+        Create ON-PREM Tenant Cluster
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ccp_create_cluster-aws/" class="md-nav__link">
+        Create AWS Tenant Cluster
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Connect Cluster in AWS to Hybrid Network
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Connect Cluster in AWS to Hybrid Network
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-aws-vpn-gateway" class="md-nav__link">
+    Create AWS VPN Gateway
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-site-to-site-vpn-connection" class="md-nav__link">
+    Create Site-to-Site VPN Connection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-routes-for-return-traffic-to-on-premise-data-center" class="md-nav__link">
+    Add routes for return traffic to on-premise Data Center
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-security-groups-rules-to-allow-traffic-to-on-premise-data-center" class="md-nav__link">
+    Update Security Groups rules to allow traffic to on-premise Data Center
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validate-connectivity" class="md-nav__link">
+    Validate connectivity
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ccp_accessing_kubernetes_cluster/" class="md-nav__link">
+        Access Tenant Cluster
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Hybrid Cloud IoT Application
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Hybrid Cloud IoT Application" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Hybrid Cloud IoT Application
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy_backend/" class="md-nav__link">
+        Deploy Backend App on Tenant Clusters
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy_frontend-aws/" class="md-nav__link">
+        Deploy Frontend App on Amazon Cloud
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Appendixes
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Appendixes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Appendixes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend_exercise/" class="md-nav__link">
+        Explore Backend Application
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        Kubernetes Network Policies
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Kubernetes Network Policies" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Kubernetes Network Policies
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security_policies/" class="md-nav__link">
+        Apply Security Policy to REST API Agent
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guacamole/" class="md-nav__link">
+        Guacamole
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-aws-vpn-gateway" class="md-nav__link">
+    Create AWS VPN Gateway
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-site-to-site-vpn-connection" class="md-nav__link">
+    Create Site-to-Site VPN Connection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-routes-for-return-traffic-to-on-premise-data-center" class="md-nav__link">
+    Add routes for return traffic to on-premise Data Center
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-security-groups-rules-to-allow-traffic-to-on-premise-data-center" class="md-nav__link">
+    Update Security Groups rules to allow traffic to on-premise Data Center
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validate-connectivity" class="md-nav__link">
+    Validate connectivity
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="connect-aws-eks-kubernetes-cluster-to-hybrid-network">Connect AWS EKS Kubernetes Cluster to Hybrid Network</h1>
+<p>After successfully created EKS cluster, now it is a time to connect it to VPN connection towards On-Premise Data Center.
+CCP created dedicated VPC for every Kubernetes EKS Cluster. You can now start working on it and deploying applicaitons, however your services and applications will be exposed to public Internet. In our scenario, we will be deploying backend part of our application in EKS cluster that needs to have connectivity to database that you will deploy on-premise.</p>
+<p>In order to provider secure connectivity between application components, we would need to establish IPSec Tunnel between AWS and on-premise data center.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/vpn-basic-diagram.png"></p>
+<p>The VPC has an attached virtual private gateway, and your on-premises (remote) network includes a customer gateway device, which you must configure to enable the Site-to-Site VPN connection. You set up the routing so that any traffic from the VPC bound for your network is routed to the virtual private gateway.
+Site-to-Site VPN is used to build eBGP connection between Amazon and on-prem router to exchange networks used for Kubernetes services in secured manner.</p>
+<p>This solution is well described in the following white paper:</p>
+<p><a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html" target="_blank">https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html</a></p>
+<p>In our excercise you will need to:</p>
+<ul>
+<li>Define Virtual Private Gateway</li>
+<li>Bound it with VPC created by CCP</li>
+<li>Create Site-to-Site Tunnel</li>
+<li>Paste configuration to your on-prem CSR1000v - configuration will be provided by AWS</li>
+</ul>
+<h2 id="create-aws-vpn-gateway">Create AWS VPN Gateway</h2>
+<ul>
+<li><strong>Step 1.</strong> Open AWS dashboard, and select VPC service, as on the following picture:</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-vpc-enter.png"></p>
+<p>Next check the VPC has been created with the name you have provided in CCP (aws-student-XX). </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Make sure your AWS web console is set to use Frankfurt (eu-central-1) region.</p>
+</div>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-vpc-find.png"></p>
+<ul>
+<li><strong>Step 2.</strong> Create new Virtual Private Gateway</li>
+</ul>
+<p>From the left menu, scrol down and select Virtual Private Gateways</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-vpc-vgw-enter.png"></p>
+<p>Press button <em>Create Virtual Private Gateway</em></p>
+<p>Enter your username as a name of Virtual Private Gateway (studentXX) and leave <em>default ASN</em> selected (autonomous system number for BGP).</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-vgw-creating.png"></p>
+<p>Once create successfully you should see similar screen</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-vgw-created.png"></p>
+<ul>
+<li><strong>Step 3.</strong> Attach Virtual Private Gateway to your VPC. Select your newely created Gateway and click on <em>Actions</em> menu. Select <em>attach to VPC</em> option.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-vgw-attaching.png"></p>
+<p>In the new window select your VPC to which Virtual Private Gateway will be attached.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-vgw-attaching-to-vpc.png"></p>
+<p>You can see <em>attaching</em> status, you can refresh page by clicking refresh button in the right top corner, the status should change to <em>attached</em> for your Virtual Private Gateway.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-vgw-attached.png"></p>
+<h2 id="create-site-to-site-vpn-connection">Create Site-to-Site VPN Connection</h2>
+<p>Select <em>Site-to-Site VPN Connections</em> section from left navigation panel. Click on <strong>Create VPN Connection</strong> as shown on figure below.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-l2l-create.png"></p>
+<p>New configuration wizard will open in the browser. Configure your new VPN Tunnel as follows.</p>
+<ol>
+<li>
+<p>Name tag, use <strong>studentID</strong> i.e. student01.</p>
+</li>
+<li>
+<p>In Virtual Private Gateway select previously created VGW, search for <em>studentXX</em>.</p>
+</li>
+<li>
+<p>Next, select <em>Customer Gateway ID</em>. From drop down menu select <strong>cgw-lon-dcloud</strong>.</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-l2l.png"></p>
+<p>Leave rest of the Site-2-Site VPN attributes unchanged. Scroll down to the bottom of the screen and click <strong> Create VPN Connection</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Creation time for site-to-site VPN may take several minutes, use refresh button to check if state has changed.</p>
+</div>
+<p>Once completed, select your newly created Site-2-Site VPN from the list. Once done click on button above <strong>Download Configuration</strong>.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-l2l-csr1kv.png"></p>
+<ol>
+<li>Click <strong>Download Configuration</strong></li>
+<li>Select Cisco Systems, Inc. from the <em>Vendor</em> drop-down menu</li>
+<li>Select CSRv AMI from <em>Platform</em> list</li>
+<li>Leave software version selected </li>
+<li>Click <strong>Download</strong> button</li>
+<li>Save file on your PC or on Virtual RDP.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When you use webRDP, please use <strong><em>WordPad</em></strong> to edit the configuration file.</p>
+</div>
+<p>When file is downloaded, open it using text file editor. You will see IOS-XE configuration for your ON-PREM router.
+In be <em>HEADER</em> section you will find <b>&lt;interface_name/private_IP_on_outside_interface></b> which has to be replaced in entire file.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-l2l-csr-txt.png"></p>
+<p>Using <strong>Replace</strong> function in your text editor, please replace the mentioned phrase by IP address of your CSR1000v Router:
+<div class="highlight"><pre><span></span><code>&lt;interface_name/private_IP_on_outside_interface&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>198.18.133.254
+</code></pre></div></p>
+<p>Now you can copy/paste configuration of Site-2-Site VPN to your on-prem Cisco CRS1kv router <code>ssh admin@198.18.133.254</code>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>In the configuration template you will find command: <code>crypto isakmp keepalive threshold 10 retry 10</code>.
+You will get an error when paste it to CSR CLI. You can ignore it or correct it: <code>crypto isakmp keepalive threshold 10 10</code>.</p>
+</div>
+<p>Please copy not-commented lines. You can read comments, which describe each part of configuration.</p>
+<p>Finally, when copied you will have TWO Site-2-Site VPN tunnels UP and TWO eBGP Sessions UP with AWS peers. Check status of the IPSec tunnels:</p>
+<pre><code>show crypto session
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-l2l-csr-crypto-session.png"></p>
+<p>Check BGP peering <code>show ip bgp summary</code> - you should receive 1 prefix from each peer.</p>
+<pre><code>show ip bgp summary
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-l2l-csr-bgp.PNG"></p>
+<p>On the AWS Dashboard you will see eBGP Peers UP in that section.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-l2l-status.png"></p>
+<p>Tunnels are UP, eBGP is UP and routes are exchanged. Next section is about steering traffic to right VPN tunnel for on-prem subnets.</p>
+<h2 id="add-routes-for-return-traffic-to-on-premise-data-center">Add routes for return traffic to on-premise Data Center</h2>
+<ul>
+<li><strong>Step 1.</strong> Select your Route Tables from the left menu, and find your VPC.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-vpc-rt-find.png"></p>
+<ul>
+<li><strong>Step 2.</strong> Edit VPC Main Routing Table. Check in which row the <em>Main</em> column contains <em>Yes</em>. Make sure you selected Main route table for your VPC and not the <em>default VPC</em>.
+Select that route table (usually it does not have a name) and select Routes tab from the bottom panel. Click on <em>Edit routes</em> button here.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-vpc-rt-edit-route.png"></p>
+<ul>
+<li>
+<p><strong>Step 3.</strong> Add route to On-Premise data center. Enter following parameters:</p>
+<ul>
+<li><strong>Prefix:</strong> 10.200.0.0/24</li>
+<li><strong>Target:</strong> type <em>vgw-</em> and you will find your Virtual Private Gateway created earlier.</li>
+</ul>
+</li>
+</ul>
+<p>Click <em>Save routes</em></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Make sure you will see 2 routes in this route table, like in the picture below</p>
+</div>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-vpc-add-route.png"></p>
+<ul>
+<li><strong>Step 4.</strong> Add the same return route under <em>subnets</em>. From the panel above select <em>aws-student-XX-private-route-table1</em> only and add the same subnet as in Step 3.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-vpc-rt-subnet-edit.png"></p>
+<ul>
+<li>
+<p><strong>Step 5.</strong> Add route to On-Premise data center. Enter following parameters:</p>
+<ul>
+<li><strong>Prefix:</strong> 10.200.0.0/24</li>
+<li><strong>Target:</strong> type <em>vgw-</em> and you will find your Virtual Private Gateway created earlier.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Make sure you will see 3 routes in this route table, like in the picture below</p>
+</div>
+<p>Click <em>Save routes</em></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-vpc-subnet-add-route.png"></p>
+<h2 id="update-security-groups-rules-to-allow-traffic-to-on-premise-data-center">Update Security Groups rules to allow traffic to on-premise Data Center</h2>
+<ul>
+<li><strong>Step 1.</strong> Select EC2 service</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-ec2-enter3.png"></p>
+<ul>
+<li><strong>Step 2.</strong> You should see only one ec2 instance, which is a worker node of the Kubernetes cluster.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-ec2-find-2.png"></p>
+<ul>
+<li><strong>Step 3.</strong> Update EC2 security group.</li>
+</ul>
+<p>Select your EC2 instance, on the bottom details area please click on link to edit Security Groups associated to this VM instance.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-ec2-sg-find-2.png"></p>
+<p>you will be redirected to Security Groups dashboard where you should select <em>Inbound</em> and then click on <em>Edit rules</em> button.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-sg-enter-2.png"></p>
+<ul>
+<li><strong>Step 4.</strong> Add new rule to allow ingress traffic to EC2 instance from On-Premise prefix.</li>
+</ul>
+<p>Add new rule with following parameters:</p>
+<ul>
+<li><strong>Type:</strong> All traffic</li>
+<li><strong>Source:</strong> 10.200.0.0/24</li>
+</ul>
+<p>Click Save.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-sg-add-rule-prefix-2.png"></p>
+<h2 id="validate-connectivity">Validate connectivity</h2>
+<p>From Linux jumphost machine, ping IP address of your EC2 instance. 
+To find out your EC2 instance IP address, go to EC2 dashboard and select <em>Instances</em> and your instance (1). In the bottom panel in <em>Details</em> tab (2), look for the IPv4 address (3) associated with the DNS name (4).</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-ec2-ip.png"></p>
+<p>You can try to ping this IP address from Linux Jumphost. </p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/linux-vpn-validation-2.png"></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../ccp_create_cluster-aws/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Create AWS Tenant Cluster
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../ccp_accessing_kubernetes_cluster/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Access Tenant Cluster
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a1c7c35e.min.js"></script>
+      
+    
+  </body>
+</html>

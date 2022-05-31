@@ -1,0 +1,667 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Welcome to the 'Containerized Applications on Hybrid Cloud Environments' Lab.">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
+    
+    
+      
+        <title>Connectivity Check - Cisco Live 2021 HOLCLD-2101</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2c0c5eaf.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#connectivity-check" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Cisco Live 2021 HOLCLD-2101" class="md-header__button md-logo" aria-label="Cisco Live 2021 HOLCLD-2101" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cisco Live 2021 HOLCLD-2101
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Connectivity Check
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Cisco Live 2021 HOLCLD-2101" class="md-nav__button md-logo" aria-label="Cisco Live 2021 HOLCLD-2101" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Cisco Live 2021 HOLCLD-2101
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Lab Access
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Lab Access" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Lab Access
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LAB_access/" class="md-nav__link">
+        Accessing the Lab Environment
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Cisco Container Platform
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Cisco Container Platform" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Cisco Container Platform
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ccp_exploring/" class="md-nav__link">
+        Explore Cisco Container Platform (CCP)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ccp_create_cluster-onprem/" class="md-nav__link">
+        Create ON-PREM Tenant Cluster
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ccp_create_cluster-aws/" class="md-nav__link">
+        Create AWS Tenant Cluster
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ccp_connect_eks_to_hybrid_network/" class="md-nav__link">
+        Connect Cluster in AWS to Hybrid Network
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ccp_accessing_kubernetes_cluster/" class="md-nav__link">
+        Access Tenant Cluster
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Hybrid Cloud IoT Application
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Hybrid Cloud IoT Application" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Hybrid Cloud IoT Application
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy_backend/" class="md-nav__link">
+        Deploy Backend App on Tenant Clusters
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy_frontend-aws/" class="md-nav__link">
+        Deploy Frontend App on Amazon Cloud
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Appendixes
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Appendixes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Appendixes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend_exercise/" class="md-nav__link">
+        Explore Backend Application
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        Kubernetes Network Policies
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Kubernetes Network Policies" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Kubernetes Network Policies
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security_policies/" class="md-nav__link">
+        Apply Security Policy to REST API Agent
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guacamole/" class="md-nav__link">
+        Guacamole
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-lab-access-general-description" class="md-nav__link">
+    1. Lab access general description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cisco-dcloud-dashboard" class="md-nav__link">
+    2. Cisco dCloud dashboard
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Cisco dCloud dashboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cisco-anyconnect-mobility-client" class="md-nav__link">
+    Cisco Anyconnect Mobility Client
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-accessing-linux-jumphost" class="md-nav__link">
+    3. Accessing Linux Jumphost
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-accessing-cisco-container-platform" class="md-nav__link">
+    4. Accessing Cisco Container Platform
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-accessing-csr1kv-lab-router" class="md-nav__link">
+    5. Accessing CSR1kv Lab router
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-accessing-vcenter-for-lab" class="md-nav__link">
+    6. Accessing vCenter for Lab
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-amazon-web-services-access" class="md-nav__link">
+    7. Amazon Web Services access
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="connectivity-check">Connectivity Check</h1>
+<h2 id="1-lab-access-general-description">1. Lab access general description</h2>
+<p>The lab has been built leveraging multiple cloud environments as following:</p>
+<ul>
+<li>Amazon Web Services</li>
+<li>Private intrastructure on-prem</li>
+</ul>
+<p>You will have access to Cisco Container Platform GUI, where you will setup new Kubernetes Clusters deployed in AWS and On-Prem. In the end you will manage your application that will be deployed in 2 different environments. In this lab you will see how to connect microservices together to make whole application work.
+Most of the tasks you will do from Linux Jumphost that is running on-premise. From there you will deploy components of your application in Kubernetes Cluster in AWS and on-prem.</p>
+<h2 id="2-cisco-dcloud-dashboard">2. Cisco dCloud dashboard</h2>
+<p>The entire lab for the session is built using Cisco dCloud environment. To access it, you need to login to dCloud dashboard first. To do so, open https://dcloud.cisco.com in your browser.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/dCloud-start.PNG" width = 800></p>
+<p>On the right top corner is button to login. To enter dCloud dashboard, please use your CCO account. It's same credentials which you use to access cisco.com resources ie downloading the Cisco software.</p>
+<p>Once login to the Cisco dCloud dashboard, change your Data Center to be LON - EMEAR. To do it, click on the button left to your profile - right top corner.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/dCloud-start-frame.png" width = 800></p>
+<p>When moved to correct DataCenter for the session, navigate to "My Hub" section, where you will see your assigned session.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/dCloud-dashboard.PNG" width = 800></p>
+<p>On your session list you will see the one for HOLCLD-2101. Please open "view" to check details, how to login to VPN.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/dCloud-dashboard-view.png" width = 800></p>
+<p>Now navigate to Details, where you find credentials to connect to dCloud VPN network.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/dCloud-session-details.PNG" width = 800></p>
+<h3 id="cisco-anyconnect-mobility-client">Cisco Anyconnect Mobility Client</h3>
+<p>Run Cisco Anyconnect VPN client available on your desktop. Check credentials and URL in the dCloud session details as described in section above.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/anyconnect_dcloud.png" width = 800></p>
+<p>Your are connected to infrastructure on-prem. </p>
+<h2 id="3-accessing-linux-jumphost">3. Accessing Linux Jumphost</h2>
+<p>Open PuTTY client or any equivalent SSH client on your desktop.</p>
+<p>Enter following IP address, make sure SSH is the selected protocol.</p>
+<pre><code>Computer: 198.18.133.10
+User name: cisco
+User password: C1sco12345
+</code></pre>
+<h2 id="4-accessing-cisco-container-platform">4. Accessing Cisco Container Platform</h2>
+<p>Cisco Container Platform manages Kuberenetes clusters in the private infrasturcture. You will have access to dedicated instance of Cisco Container Platform, from which you will manage your own Kuberenetes Clusters used later on to deploy application.</p>
+<p>Please find login credentials and URL to your CCP instance below:</p>
+<pre><code>URL: https://198.18.133.100
+User name: admin
+User password: C1sco12345
+</code></pre>
+<blockquote>
+<p><strong>You can explore CCP through the GUI, but please do not delete content already created.</strong></p>
+</blockquote>
+<h2 id="5-accessing-csr1kv-lab-router">5. Accessing CSR1kv Lab router</h2>
+<p>Your session contain Cisco CSR1kv router. It will be used to terminate Site-2-Site tunnels with AWS and GCP tenants. The VPN configuration will be generated by cloud platforms and then copied to the CLI.</p>
+<p>Please find login credentials and IP address to your CSR1kv router below - use SSH:</p>
+<pre><code>Computer: 198.18.133.254
+User name: admin
+User password: C1sco12345
+</code></pre>
+<blockquote>
+<p><strong>Do not delete configuration already existing on the router.</strong></p>
+</blockquote>
+<h2 id="6-accessing-vcenter-for-lab">6. Accessing vCenter for Lab</h2>
+<p>Whole setup is done on ESXi in Cisco dCloud environment. During the lab you don't need to perform actions on vCenter itself. However for case of troubleshooting or exploration, credentials to your vCenter below.</p>
+<pre><code>URL: https://vc65.demo.dcloud.cisco.com/ui
+User name: administrator
+User password: C1sco12345!
+</code></pre>
+<blockquote>
+<p><strong>Do not delete configuration nor VM machines already existing on the vCenter.</strong></p>
+</blockquote>
+<h2 id="7-amazon-web-services-access">7. Amazon Web Services access</h2>
+<p>From Chrome web browser on your desktop, please open URL <a href="https://fwardzic.signin.aws.amazon.com/console">https://fwardzic.signin.aws.amazon.com/console</a></p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-login-screen.png"></p>
+<p>Enter your credentials that you can find in credentials page.</p>
+<p>Once logged in, make sure you will use Frankfurt region (eu-central-1). This is important since VPN Site-2-Site tunnel will be established to that particular region.</p>
+<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-region-set.png"></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a1c7c35e.min.js"></script>
+      
+    
+  </body>
+</html>
