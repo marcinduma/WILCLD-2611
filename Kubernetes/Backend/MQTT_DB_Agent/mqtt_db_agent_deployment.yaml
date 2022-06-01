@@ -1,5 +1,5 @@
 ---
-apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: iot-backend-mqtt-db-agent
@@ -18,7 +18,7 @@ spec:
         app: iot-backend-mqtt-db-agent
     spec:
       containers:
-      - image: eu.gcr.io/fwardz001-poc-ci1s/mqtt_db_plugin:latest
+      - image: eu.gcr.io/fwardz001-poc-ci1s/mqtt_db_plugin:v9
         name: mqtt-db-agent
         env:
         - name: DB_PASSWORD
