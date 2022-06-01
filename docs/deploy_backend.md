@@ -3,7 +3,7 @@
 
 In this section you would deploy the backend components of the IoT Application on the Kubernetes cluster deployed on your CCP instance. Following diagram shows the high-level architecture of these backend application containers
 
-![Rapi](https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/diagram-backend-all.png)
+![Rapi](https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/diagram-backend-all.png)
 
 ## Login to Kubernetes Master CLI Shell:
 
@@ -20,7 +20,7 @@ MariaDB will be used in the backend to save the sensor data received from AWS Io
 
 Following diagram shows the relationship between these objects -
 
-![Rapi](https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/mariadb_kubernetes_deployment.png)
+![Rapi](https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/mariadb_kubernetes_deployment.png)
 
 ### 1.1 Create Kubernetes Secret for MariaDB:
 
@@ -34,7 +34,7 @@ The MariaDB container image uses an environment variable named as 'MYSQL\_ROOT\_
 		kubectl config get-contexts
 	
 
-<img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/kubectl-use-on-prem.png">
+<img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/kubectl-use-on-prem.png">
 
 * **1.1.2: Create DB Password Secret -** Use the following command to create a new secret on your kubernetes cluster -
 
@@ -46,7 +46,7 @@ The MariaDB container image uses an environment variable named as 'MYSQL\_ROOT\_
 		
 	You should have the output similar to the following screenshot -
 	
-	![Rapi](https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/mariadb-secret-onprem.png)
+	![Rapi](https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/mariadb-secret-onprem.png)
 	
 
 ### 1.2 Create Kubernetes Persistent Volume Claim for MariaDB:
@@ -83,7 +83,7 @@ spec:
 	
 	You should have the output similar to the following screenshot -
 	
-	![Rapi](https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/pvc-on-prem.png)
+	![Rapi](https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/pvc-on-prem.png)
 	
 !!! caution
 	It can take up to a few minutes for the PVs to be provisioned. DO NOT procced futher till the PVC deployment gets completed.
@@ -145,7 +145,7 @@ spec:
 		
 	You should have the output similar to the following screenshot
 	
-	![Rapi](https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/mariadb-deployment-status.png)
+	![Rapi](https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/mariadb-deployment-status.png)
 	
 * **1.3.3: Check Pod Status -** Use the following command to check if the 'iot-backend-mariadb' pod is in '**Running**' state
 
@@ -190,13 +190,13 @@ spec:
 		
 	You should have the output similar to the following screenshot
 
-![Rapi](https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/mariadb-service-lb.png)
+![Rapi](https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/mariadb-service-lb.png)
 
 ## 2. Deploy REST API Agent on Kubernetes:
 
 The 'REST API Agent' would act as the gateway to the backend application. It will listen to the incoming HTTP requests from the frontend application that you will deploy on AWS.
 
-![Rapi](https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/diagram-restapi.png)
+![Rapi](https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/diagram-restapi.png)
 
 ### 2.1 Deploy REST API Agent:
 
@@ -245,7 +245,7 @@ spec:
 		
 	You should have the output similar to the following screenshot
 	
-	![Rapi](https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/restapi-deployment.png)
+	![Rapi](https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/restapi-deployment.png)
 	
 * **2.1.3: Check Pod Status -** Use the following command to check if the 'iot-backend-rest-api-agent' pod is in '**Running**' state
 
@@ -289,7 +289,7 @@ spec:
 		
 	You should have the output similar to the following screenshot
 		
-	![Rapi](https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/restapi-service.png)
+	![Rapi](https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/restapi-service.png)
 	
 ### 2.3 Locate the IP and Port to Access Node-Port Service for REST API Agent:
 
@@ -305,7 +305,7 @@ You need to find the NodePort and Kubernetes Node external IP to access the 'res
 
 	Following screenshot highlights the Port and Node IPs in the command outputs
 
-	![Rapi](https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/restapi-service-ip.png)
+	![Rapi](https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/restapi-service-ip.png)
 
 !!! important
 	Note down the Node External IP Address and NodePort Service Port Number. These values will be used in next section for deploying the frontend app as the environment variables values ('**BACKEND\_HOST**' and '**BACKEND\_PORT**').
@@ -314,7 +314,7 @@ You need to find the NodePort and Kubernetes Node external IP to access the 'res
 
 'MQTT to DB Agent' will subscribe to the MQTT Topic and listen to the incoming sensor data from AWS IoT platform. It will then parse the sensor data and insert it into the MariaDB.
 
-![Rapi](https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/diagram-mqtt.png)
+![Rapi](https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/diagram-mqtt.png)
 
 The following yaml definition will be used to create the MQTT to DB Agent pods
 
@@ -353,7 +353,7 @@ spec:
 	kubectl config use-context aws
 	kubectl config get-contexts
 
-<img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/kubectl-use-aws.png">
+<img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/kubectl-use-aws.png">
 
 * **3.2: Create DB Password Secret -** Use the following command to create a new secret on your kubernetes cluster
 
@@ -365,7 +365,7 @@ spec:
 		
 	You should have the output similar to the following screenshot
 	
-	![Rapi](https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/mariadb-secret-onprem.png)
+	![Rapi](https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/mariadb-secret-onprem.png)
 	
 * **3.4: Create external service**
 
@@ -403,7 +403,7 @@ Check string to be replaced by LoadBalancerIP allocated to mariadb-service from 
 
 	cat mariadb-ext-service-eks.yaml
   
-<img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/cat-mariadb-template.png">
+<img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/cat-mariadb-template.png">
 
 Change `<mariadb-service_LoadBalancer_IP>` with IP address of your load balancer IP, replace **10.200.0.XXX** in *sed* command below with the IP address of LoadBalancer IP allocated to mariadb-service in on-premise Kubernetes Cluster.
 
@@ -414,7 +414,7 @@ Check the manifest file after change of IP:
 	cat mariadb-ext-service-eks.yaml
 	
 	
-<img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/mariadb-change-ip.png">
+<img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/mariadb-change-ip.png">
 
 !!! IMPORTANT
 	Make sure that the IP address of mariadb-service you specified is correct.
@@ -427,7 +427,7 @@ Check services and associated endpoints:
 
 	kubectl get svc,endpoints
 
-<img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/eks-get-svc-endpoints.png">
+<img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/eks-get-svc-endpoints.png">
 
 * **3.5: Deploy MQTT to DB Agent -** Use the following command to create mqtt-to-db-agent kubernetes deployment
 
@@ -440,7 +440,7 @@ Check services and associated endpoints:
 		
 	You should have the output similar to the following screenshot
 		
-	![Rapi](https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/mqtt-deployment.png)
+	![Rapi](https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/mqtt-deployment.png)
 	
 * **3.5: Check Pod Status -** Use the following command to check if the 'iot-backend-mqtt-db-agent' pod is in '**Running**' state
 
@@ -467,7 +467,7 @@ Change `kubectl` context to `on-prem-backend`
 
 	Following screenshot highlights the Port and Node IPs in the command outputs
 
-	![Rapi](https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/restapi-service-ip.png)
+	![Rapi](https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/restapi-service-ip.png)
 	
 External IP addresses are NATed to 198.18.133.x 1:1. Please replace 10.200.0. in your noted IP to 198.18.133.
 Now you have open Chrome browser and specify URL based on pattern - 
@@ -477,7 +477,7 @@ Now you have open Chrome browser and specify URL based on pattern -
 
 If your REST API Agent is working properly, you should see 'Welcome to the API Service...!' message on your browser as shown in the following screenshot -
 
-![Rapi](https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/rest_api_url_test.png)
+![Rapi](https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/rest_api_url_test.png)
 
 Following are the other urls that you could test -
 

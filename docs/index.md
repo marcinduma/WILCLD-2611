@@ -27,7 +27,7 @@ During this lab session you will be able to experience of deployment multi-cloud
 
 Components of the application and their interconnection is presented on the figure below.
 
-<img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/Overal-HybridApp.png">
+<img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/Overal-HybridApp.png">
 
 By using CCP, you will be able to deploy Kubernetes clusters in vSphere - on premise and AWS.
 Once done, you will manage each of Kubernetes tenant from central terminal server running Kubernetes commands to deploy our App.
