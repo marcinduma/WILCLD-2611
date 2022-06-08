@@ -7,50 +7,30 @@ The lab has been built leveraging multiple cloud environments as following:
 - Amazon Web Services
 - Private intrastructure on-prem
 
-You will have access to Cisco Container Platform GUI, where you will setup new Kubernetes Clusters deployed in AWS and On-Prem. In the end you will manage your application that will be deployed in 2 different environments. In this lab you will see how to connect microservices together to make whole application work.
+You will have access to Cisco Intersight GUI, where you will see  Kubernetes Clusters deployed On-Prem. In the end you will manage your application that will be deployed in 2 different environments. The infrastructure between On-prem and AWS is ready and functioning. In this lab you will see how to connect microservices together to make whole application work.
 Most of the tasks you will do from Linux Jumphost that is running on-premise. From there you will deploy components of your application in Kubernetes Cluster in AWS and on-prem.
 
 ## 2. Cisco dCloud dashboard
 
-The entire lab for the session is built using Cisco dCloud environment. To access it, you need to login to eXpo dashboard first. To do so, open <a href="https://dcloud2-rtp.cisco.com/expo/cla9t9xukip4x5qc9z7hygsu3/" target="_blank">https://dcloud2-rtp.cisco.com/expo/cla9t9xukip4x5qc9z7hygsu3/</a> in your browser.
-
-<img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/expo-start.png" width = 800>
-
-Select Exlore button to launch the lab session.
-
-<img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/expo-explore.png" width = 800>
-
-New window popup will come. Please provide your e-mail address, check "terms&conditions" and click Continue button.
-
-<img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/expo-launch.png" width = 500>
-
-Once you click Continue on the window above, you will get your session details.
-
-<img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/expo-session.png" width = 800>
-
-Now navigate to Details, where you find credentials to connect to dCloud VPN network.
-
-<img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/expo-details.png" width = 800>
-
-### Cisco Anyconnect Mobility Client
-
-Run Cisco Anyconnect VPN client available on your desktop. Check credentials and URL in the dCloud session details as described in section above.
-
-<img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/anyconnect_dcloud.png" width = 800>
-
-You are connected to infrastructure on-prem. 
+The entire lab for the session is built using Cisco dCloud environment.
+Access to the Session will be provided by the proctor assigned to you.
 
 ### Access session with webRDP
 
-When you prefer to not install Cisco Anyconnect VPN Client on your PC, you have possibility to do whole LAB using webRDP session to terminal server installed.
+Once logged to the dCloud session, you will see dashboard like on the following picture:
 
-To do so, open Network section in your session.
+<img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/dCloud-dashboard.PNG" width = 800>
 
-<img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/expo-network.png" width = 800>
+To open WebRDP follow the procedure from the figures:
 
-Once you see screen with devices, please launch **Remote Desktop** link.
+1) Click on the blue triangle highlighted on figure below
 
-<img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/expo-network-remote-desktop.png" width = 800>
+<img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/dCloud-rdp-1.PNG" width = 800>
+
+2) Follow to "Remote Desktop" by using link in red frame on the figure:
+
+<img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/dCloud-rdp-2.PNG" width = 800>
+
 
 When you click on "Remote Desktop button, browser will open new TAB with access to Windows desktop. The webRDP has installed Chrome as web browser, from where you get access to CCP GUI.
 WinSCP will be used to upload kubeconfig files to your Linux jump host. To access CSR router and Linux jumphost, use Putty installed - shortcut is on Desktop.
