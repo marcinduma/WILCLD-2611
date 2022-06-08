@@ -291,8 +291,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-accessing-cisco-container-platform" class="md-nav__link">
-    4. Accessing Cisco Container Platform
+  <a href="#4-accessing-cisco-intersight-platform" class="md-nav__link">
+    4. Accessing Cisco Intersight Platform
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-accessing-cisco-intersight-assist" class="md-nav__link">
+    5. Accessing Cisco Intersight Assist
   </a>
   
 </li>
@@ -307,13 +314,6 @@
         <li class="md-nav__item">
   <a href="#6-accessing-vcenter-for-lab" class="md-nav__link">
     6. Accessing vCenter for Lab
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-amazon-web-services-access" class="md-nav__link">
-    7. Amazon Web Services access
   </a>
   
 </li>
@@ -565,8 +565,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-accessing-cisco-container-platform" class="md-nav__link">
-    4. Accessing Cisco Container Platform
+  <a href="#4-accessing-cisco-intersight-platform" class="md-nav__link">
+    4. Accessing Cisco Intersight Platform
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-accessing-cisco-intersight-assist" class="md-nav__link">
+    5. Accessing Cisco Intersight Assist
   </a>
   
 </li>
@@ -581,13 +588,6 @@
         <li class="md-nav__item">
   <a href="#6-accessing-vcenter-for-lab" class="md-nav__link">
     6. Accessing vCenter for Lab
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-amazon-web-services-access" class="md-nav__link">
-    7. Amazon Web Services access
   </a>
   
 </li>
@@ -626,50 +626,62 @@ Access to the Session will be provided by the proctor assigned to you.</p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/dCloud-rdp-1.PNG" width = 800></p>
 <p>2) Follow to "Remote Desktop" by using link in red frame on the figure:</p>
 <p><img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/dCloud-rdp-2.PNG" width = 800></p>
-<p>When you click on "Remote Desktop button, browser will open new TAB with access to Windows desktop. The webRDP has installed Chrome as web browser, from where you get access to CCP GUI.
-WinSCP will be used to upload kubeconfig files to your Linux jump host. To access CSR router and Linux jumphost, use Putty installed - shortcut is on Desktop.</p>
+<p>When you click on "Remote Desktop button, browser will open new TAB with access to Windows desktop. The webRDP has installed Chrome as web browser, from where you get access to Cisco Intersight page.
+To access CSR router and Linux jumphost, use Putty installed - shortcut is on Desktop.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Please do not use "Remote Desktop" for other devices from the list at <strong>Network</strong> tab. ONLY win2k16 can be accessed that way.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If you use webRDP you are still able to copy/paste between your 'main PC' and webRDP interface. You can use Guacamole interface - explained in Appendix: Guacamole.</p>
+<p>When you use webRDP you are still able to copy/paste between your 'main PC' and webRDP interface. You can use Guacamole interface - explained in Appendix: Guacamole.</p>
 </div>
 <h2 id="3-accessing-linux-jumphost">3. Accessing Linux Jumphost</h2>
-<p>Open PuTTY client or any equivalent SSH client on your desktop.</p>
-<p>Enter following IP address, make sure SSH is the selected protocol.</p>
-<p>Computer:</p>
-<pre><code>198.18.133.10
-</code></pre>
-<p>User name:</p>
-<pre><code>cisco
+<p>Open PuTTY client on webRDP taskbar.</p>
+<p>PuTTY has pre-defined session to CSR router as well as to ubuntu-terminal. Use predefined ubuntu-terminal session by selecting it and click Open button.</p>
+<p>Username:</p>
+<pre><code>dcloud
 </code></pre>
 <p>User password:</p>
 <pre><code>C1sco12345
 </code></pre>
-<h2 id="4-accessing-cisco-container-platform">4. Accessing Cisco Container Platform</h2>
-<p>Cisco Container Platform manages Kuberenetes clusters in the private infrasturcture. You will have access to dedicated instance of Cisco Container Platform, from which you will manage your own Kuberenetes Clusters used later on to deploy application.</p>
+<h2 id="4-accessing-cisco-intersight-platform">4. Accessing Cisco Intersight Platform</h2>
+<p>Cisco Intersight Platform manages Kuberenetes clusters in the private infrasturcture. You will have access to dedicated instance of Cisco Intersight, from which you will manage your own Kuberenetes Clusters used later on to deploy application.</p>
 <p>Please find login credentials and URL to your CCP instance below:</p>
 <p>URL:</p>
-<pre><code>https://198.18.133.100
+<pre><code>https://intersight.com/
+</code></pre>
+<p>User name:</p>
+<pre><code>holcld2611+pod'X'@gmail.com
+</code></pre>
+<p>Where X will be provided by proctor </p>
+<p>User password:</p>
+<pre><code>CiscoLive!2022
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You can explore Cisco Intersight through the GUI, but please do not delete content already created.</p>
+</div>
+<h2 id="5-accessing-cisco-intersight-assist">5. Accessing Cisco Intersight Assist</h2>
+<p>Cisco Intersight requires installation of local (on-prem) satelite system. Cisco Intersight Assist collect data from local vCenter and send it to Cisco Intersight PaaS in secure manner.
+You can login to local Cisco Intersight Assist using credentials provided below:</p>
+<p>URL:</p>
+<pre><code>https://iva.dcloud.cisco.com
 </code></pre>
 <p>User name:</p>
 <pre><code>admin
 </code></pre>
+<p>Where X will be provided by proctor </p>
 <p>User password:</p>
 <pre><code>C1sco12345
 </code></pre>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>You can explore CCP through the GUI, but please do not delete content already created.</p>
+<p>You can explore Cisco Intersight Assist through the GUI, but please do not delete content already created.</p>
 </div>
 <h2 id="5-accessing-csr1kv-lab-router">5. Accessing CSR1kv Lab router</h2>
-<p>Your session contain Cisco CSR1kv router. It will be used to terminate Site-2-Site tunnels with AWS and GCP tenants. The VPN configuration will be generated by cloud platforms and then copied to the CLI.</p>
-<p>Please find login credentials and IP address to your CSR1kv router below - use SSH:</p>
-<p>Computer:</p>
-<pre><code>198.18.133.254
-</code></pre>
+<p>Your session contain Cisco CSR1kv router. It is used to terminate Site-2-Site tunnels with AWS tenant. All configuration is ready and doesn't require any modifications.</p>
+<p>Please find login credentials and IP address to your CSR1kv router below - use PuTTY predefined session:</p>
 <p>User name:</p>
 <pre><code>admin
 </code></pre>
@@ -683,10 +695,10 @@ WinSCP will be used to upload kubeconfig files to your Linux jump host. To acces
 <h2 id="6-accessing-vcenter-for-lab">6. Accessing vCenter for Lab</h2>
 <p>Whole setup is done on ESXi in Cisco dCloud environment. During the lab you don't need to perform actions on vCenter itself. However for case of troubleshooting or exploration, credentials to your vCenter below.</p>
 <p>URL:</p>
-<pre><code>https://vc65.demo.dcloud.cisco.com/ui
+<pre><code>https://vc1.dcloud.cisco.com/ui
 </code></pre>
 <p>User name:</p>
-<pre><code>administrator
+<pre><code>administrator@vsphere.local
 </code></pre>
 <p>User password:</p>
 <pre><code>C1sco12345!
@@ -695,17 +707,6 @@ WinSCP will be used to upload kubeconfig files to your Linux jump host. To acces
 <p class="admonition-title">Warning</p>
 <p>Do not delete configuration nor VM machines already existing on the vCenter.</p>
 </div>
-<h2 id="7-amazon-web-services-access">7. Amazon Web Services access</h2>
-<p>From Chrome web browser on your desktop, please open URL <a href="https://console.aws.amazon.com/console/home?#" target="_blank">https://console.aws.amazon.com/console/home?#</a></p>
-<p>please select IAM user, and paste account ID number provided by instructor</p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-login-screen-1.png"></p>
-<p>Enter your credentials provided by instructor, account ID should be already populated with the value you provided in the previous screen.</p>
-<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-login-screen-2.png" width=300></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Once logged in, please change region to Frankfurt region (eu-central-1)</p>
-</div>
-<p><img src="https://raw.githubusercontent.com/marcinduma/HOLCLD-2101/master/images/aws-region-set.png"></p>
 
               
             </article>
