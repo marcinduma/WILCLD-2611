@@ -1,0 +1,14 @@
+AWS cleanup:
+kubectl delete svc,endpoints,deployment --all
+kubectl delete configmap iot-frontend-config
+kubectl delete secret mariadb-root-pass
+
+
+IKS cleanup:
+
+kubectl delete svc,deployment --all
+kubectl delete pvc --all
+kubectl delete secret mariadb-root-pass
+
+file cleanup:
+rm mariadb-ext-service-eks.yaml

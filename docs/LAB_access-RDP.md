@@ -13,7 +13,7 @@ Most of the tasks you will do from Linux Jumphost that is running on-premise. Fr
 ## 2. Cisco dCloud dashboard
 
 The entire lab for the session is built using Cisco dCloud environment.
-Details of the Session are provided in comments under POD assigned to you. You will find there VPN credentials which allow you connection to dCloud session.
+Details of the session are provided in POD assigned to you. You will find there "Connect VPN" link which allow you connection to dCloud session.
 
 ### VPN connection to dCloud infrastructure
 
@@ -60,7 +60,7 @@ User password:
 
 Cisco Intersight Platform manages Kuberenetes clusters in the private infrasturcture. You will have access to dedicated instance of Cisco Intersight, from which you will manage your own Kuberenetes Clusters used later on to deploy application.
 
-Please find login credentials and URL to your CCP instance below:
+Please find login credentials and URL to your IKS instance below:
 
 URL:
 	

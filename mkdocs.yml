@@ -5,6 +5,7 @@ nav:
   - Home: index.md
   - Lab Access:
     - Accessing the Lab Environment: LAB_access-RDP.md
+  - Explore Intersight: intersight.md
   - Hybrid Cloud IoT Application:
     - Deploy Backend App on Tenant Clusters: deploy_backend.md
     - Deploy Frontend App on Amazon Cloud: deploy_frontend-aws.md
