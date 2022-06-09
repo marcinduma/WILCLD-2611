@@ -158,4 +158,3 @@ In the LAB we use seven polices as shown on the figure below.
 <img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/intersight-polices.png" width = 1500>
 
 Table gives general information about Names and Policy Types, time of creation/update. By clicking on the policy name, its possible to check details and edit it.
-
