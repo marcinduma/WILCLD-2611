@@ -15,7 +15,7 @@
     
     
       
-        <title>Appendix - 3: Kubernetes Basic Docs - Cisco Live 2022 WILCLD-2611</title>
+        <title>Accessing the Lab Environment - Cisco Live 2022 WILCLD-2611</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#appendix-3-kubernetes-basic-docs" class="md-skip">
+        <a href="#connectivity-check" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Appendix - 3: Kubernetes Basic Docs
+              Accessing the Lab Environment
             
           </span>
         </div>
@@ -193,12 +193,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -219,11 +221,114 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../LAB_access-RDP/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Accessing the Lab Environment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Accessing the Lab Environment
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-lab-access-general-description" class="md-nav__link">
+    1. Lab access general description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cisco-dcloud-dashboard" class="md-nav__link">
+    2. Cisco dCloud dashboard
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Cisco dCloud dashboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vpn-connection-to-dcloud-infrastructure" class="md-nav__link">
+    VPN connection to dCloud infrastructure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-session-with-rdp" class="md-nav__link">
+    Access session with RDP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-accessing-linux-jumphost" class="md-nav__link">
+    3. Accessing Linux Jumphost
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-accessing-cisco-intersight-platform" class="md-nav__link">
+    4. Accessing Cisco Intersight Platform
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-accessing-cisco-intersight-assist" class="md-nav__link">
+    5. Accessing Cisco Intersight Assist
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-accessing-csr1kv-lab-router" class="md-nav__link">
+    5. Accessing CSR1kv Lab router
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-accessing-vcenter-for-lab" class="md-nav__link">
+    6. Accessing vCenter for Lab
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -433,22 +538,70 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-install-and-configure-kubectl" class="md-nav__link">
-    1. Install and Configure kubectl
+  <a href="#1-lab-access-general-description" class="md-nav__link">
+    1. Lab access general description
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-google-cloud-container-registry-pushing-and-pulling-container-images" class="md-nav__link">
-    2. Google Cloud Container Registry: Pushing and Pulling Container Images
+  <a href="#2-cisco-dcloud-dashboard" class="md-nav__link">
+    2. Cisco dCloud dashboard
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Cisco dCloud dashboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vpn-connection-to-dcloud-infrastructure" class="md-nav__link">
+    VPN connection to dCloud infrastructure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-session-with-rdp" class="md-nav__link">
+    Access session with RDP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-accessing-linux-jumphost" class="md-nav__link">
+    3. Accessing Linux Jumphost
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#kubernetes-cheat-sheet" class="md-nav__link">
-    Kubernetes Cheat Sheet:
+  <a href="#4-accessing-cisco-intersight-platform" class="md-nav__link">
+    4. Accessing Cisco Intersight Platform
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-accessing-cisco-intersight-assist" class="md-nav__link">
+    5. Accessing Cisco Intersight Assist
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-accessing-csr1kv-lab-router" class="md-nav__link">
+    5. Accessing CSR1kv Lab router
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-accessing-vcenter-for-lab" class="md-nav__link">
+    6. Accessing vCenter for Lab
   </a>
   
 </li>
@@ -467,21 +620,105 @@
                 
 
 
-<h1 id="appendix-3-kubernetes-basic-docs">Appendix - 3: Kubernetes Basic Docs</h1>
-<h3 id="1-install-and-configure-kubectl">1. Install and Configure kubectl</h3>
-<p>For information on "kubectl" installation and configuration use the following document - </p>
-<p><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">https://kubernetes.io/docs/tasks/tools/install-kubectl/</a></p>
-<h3 id="2-google-cloud-container-registry-pushing-and-pulling-container-images">2. Google Cloud Container Registry: Pushing and Pulling Container Images</h3>
-<p>To push or pull the container images to/from Google Container Registry you can follow the following article - </p>
-<p><a href="https://cloud.google.com/container-registry/docs/pushing-and-pulling">https://cloud.google.com/container-registry/docs/pushing-and-pulling</a></p>
-<p>Note: You need to login to your Google Cloud account before pushing the container image. You can do it using the following command - </p>
-<pre><code>gcloud auth login
+<h1 id="connectivity-check">Connectivity Check</h1>
+<h2 id="1-lab-access-general-description">1. Lab access general description</h2>
+<p>The lab has been built leveraging multiple cloud environments as following:</p>
+<ul>
+<li>Amazon Web Services</li>
+<li>Private intrastructure on-prem</li>
+</ul>
+<p>You will have access to Cisco Intersight GUI, where you will see  Kubernetes Clusters deployed On-Prem. In the end you will manage your application that will be deployed in 2 different environments. The infrastructure between On-prem and AWS is ready and functioning. In this lab you will see how to connect microservices together to make whole application work.
+Most of the tasks you will do from Linux Jumphost that is running on-premise. From there you will deploy components of your application in Kubernetes Cluster in AWS and on-prem.</p>
+<h2 id="2-cisco-dcloud-dashboard">2. Cisco dCloud dashboard</h2>
+<p>The entire lab for the session is built using Cisco dCloud environment.
+Details of the Session are provided in comments under POD assigned to you. You will find there VPN credentials which allow you connection to dCloud session.</p>
+<h3 id="vpn-connection-to-dcloud-infrastructure">VPN connection to dCloud infrastructure</h3>
+<p>Once you get VPN credentials, open VPN client on CiscoLive PC or your own in case you use BYOD.
+Login to dCloud VPN network, once connected you can proceed.</p>
+<h3 id="access-session-with-rdp">Access session with RDP</h3>
+<p>Once logged to the dCloud session, you will be able to RDP Windows workstation ready to use for you</p>
+<p>Open RDP client and use credentials provided below:</p>
+<p>IP Address:</p>
+<pre><code>198.18.133.10
 </code></pre>
-<p>If you have multiple projects, you can select a specific one using the following command - </p>
-<pre><code>gcloud config set project &lt;Project_ID&gt;
+<p>Username:</p>
+<pre><code>administrator
 </code></pre>
-<h2 id="kubernetes-cheat-sheet">Kubernetes Cheat Sheet:</h2>
-<p><a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">https://kubernetes.io/docs/reference/kubectl/cheatsheet/</a></p>
+<p>User password:</p>
+<pre><code>C1sco12345
+</code></pre>
+<p>When you login to Remote Desktop, you will find installed Chrome as web browser, from where you get access to Cisco Intersight page.
+To access CSR router and Linux jumphost, use Putty installed - shortcut is on Desktop.</p>
+<h2 id="3-accessing-linux-jumphost">3. Accessing Linux Jumphost</h2>
+<p>Open PuTTY client on RDP-workstation taskbar.</p>
+<p>PuTTY has pre-defined session to CSR router as well as to ubuntu-terminal. Use predefined ubuntu-terminal session by selecting it and click Open button.</p>
+<p>Username:</p>
+<pre><code>dcloud
+</code></pre>
+<p>User password:</p>
+<pre><code>C1sco12345
+</code></pre>
+<h2 id="4-accessing-cisco-intersight-platform">4. Accessing Cisco Intersight Platform</h2>
+<p>Cisco Intersight Platform manages Kuberenetes clusters in the private infrasturcture. You will have access to dedicated instance of Cisco Intersight, from which you will manage your own Kuberenetes Clusters used later on to deploy application.</p>
+<p>Please find login credentials and URL to your CCP instance below:</p>
+<p>URL:</p>
+<pre><code>https://intersight.com/
+</code></pre>
+<p>User name:</p>
+<pre><code>holcld2611+pod'X'@gmail.com
+</code></pre>
+<p>Where X will be provided by proctor </p>
+<p>User password:</p>
+<pre><code>CiscoLive!2022
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You can explore Cisco Intersight through the GUI, but please do not delete content already created.</p>
+</div>
+<h2 id="5-accessing-cisco-intersight-assist">5. Accessing Cisco Intersight Assist</h2>
+<p>Cisco Intersight requires installation of local (on-prem) satelite system. Cisco Intersight Assist collect data from local vCenter and send it to Cisco Intersight PaaS in secure manner.
+You can login to local Cisco Intersight Assist using credentials provided below:</p>
+<p>URL:</p>
+<pre><code>https://iva.dcloud.cisco.com
+</code></pre>
+<p>User name:</p>
+<pre><code>admin
+</code></pre>
+<p>User password:</p>
+<pre><code>C1sco12345
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You can explore Cisco Intersight Assist through the GUI, but please do not delete content already created.</p>
+</div>
+<h2 id="5-accessing-csr1kv-lab-router">5. Accessing CSR1kv Lab router</h2>
+<p>Your session contain Cisco CSR1kv router. It is used to terminate Site-2-Site tunnels with AWS tenant. All configuration is ready and doesn't require any modifications.</p>
+<p>Please find login credentials and IP address to your CSR1kv router below - use PuTTY predefined session:</p>
+<p>User name:</p>
+<pre><code>admin
+</code></pre>
+<p>User password:</p>
+<pre><code>C1sco12345
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not delete configuration already existing on the router.</p>
+</div>
+<h2 id="6-accessing-vcenter-for-lab">6. Accessing vCenter for Lab</h2>
+<p>Whole setup is done on ESXi in Cisco dCloud environment. During the lab you don't need to perform actions on vCenter itself. However for case of troubleshooting or exploration, credentials to your vCenter below.</p>
+<p>URL:</p>
+<pre><code>https://vc1.dcloud.cisco.com/ui
+</code></pre>
+<p>User name:</p>
+<pre><code>administrator@vsphere.local
+</code></pre>
+<p>User password:</p>
+<pre><code>C1sco12345!
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not delete configuration nor VM machines already existing on the vCenter.</p>
+</div>
 
               
             </article>
@@ -491,6 +728,41 @@
       </main>
       
         <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Home
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../deploy_backend/" class="md-footer__link md-footer__link--next" aria-label="Next: Deploy Backend App on Tenant Clusters" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Deploy Backend App on Tenant Clusters
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
