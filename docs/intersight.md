@@ -36,11 +36,11 @@ Enter e-mail provided by proctor to your POD:
 Click next and fill password.
 
 !!! tip
-	credentials for the session can be found in WIL Assistant portal. In case of issues, ask proctor to help.
+	Credentials for the session can be found in WIL Assistant portal. In case of issues, ask proctor for help.
 	
 ## 2. Intersigh Dashboard Target
 
-When you are loged to Cisco Intersight, first page you see is *Monitor* section.
+While you are logged to Cisco Intersight, first page you see is *Monitor* section.
 
 <img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/intersight-monitor.png" width = 1500>
 
@@ -123,7 +123,7 @@ When you open existing profile, you will be able to see progress wizzard.
 	In new deployment you need to create all Pools and Polices for IKS beforehand. In the wizzard below, you will see already selected polices. It is explained in next section.
 
 !!! warning
-	Please, DO NOT EDIT ANY OF THE POLICES UNDER THE PROFILE - IT MAY CAUSE DESTROY OF YOUR IKS CLUSTER.
+	PLEASE, DO NOT EDIT ANY OF THE POLICES UNDER THE PROFILE - IT MAY CAUSE DESTROY OF YOUR IKS CLUSTER.
 	Explore it only and CLOSE in the END - DON'T DEPLOY CHANGES.
 
 First page of the wizzard is asking Name of the Cluster

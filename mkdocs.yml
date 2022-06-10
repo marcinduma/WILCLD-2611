@@ -3,17 +3,15 @@ site_description: Welcome to the 'Containerized Applications on Hybrid Cloud Env
 
 nav:
   - Home: index.md
-  - Lab Access:
-    - Accessing the Lab Environment: LAB_access-RDP.md
-  - Explore Intersight: intersight.md
+  - Lab Access: LAB_access-RDP.md
   - Hybrid Cloud IoT Application:
     - Deploy Backend App on Tenant Clusters: deploy_backend.md
     - Deploy Frontend App on Amazon Cloud: deploy_frontend-aws.md
+  - Explore Intersight: intersight.md
   - Appendixes:
     - Explore Backend Application: backend_exercise.md
     - Kubernetes Network Policies:
       - Apply Security Policy to REST API Agent: security_policies.md
-    - Guacamole: guacamole.md
 theme:
   name: material
 markdown_extensions:

@@ -80,7 +80,7 @@ User password:
 
 ## 5. Accessing Cisco Intersight Assist
 
-Cisco Intersight requires installation of local (on-prem) satelite system. Cisco Intersight Assist collect data from local vCenter and send it to Cisco Intersight PaaS in secure manner.
+Cisco Intersight requires installation of local (on-prem) satelite system. Cisco Intersight Assist collects data from local vCenter and send it to Cisco Intersight PaaS in secure manner.
 You can login to local Cisco Intersight Assist using credentials provided below:
 
 URL:
@@ -99,7 +99,7 @@ User password:
 
 ## 5. Accessing CSR1kv Lab router
 
-Your session contain Cisco CSR1kv router. It is used to terminate Site-2-Site tunnels with AWS tenant. All configuration is ready and doesn't require any modifications.
+Your session contains Cisco CSR1kv router. It is used to terminate Site-2-Site tunnels with AWS tenant. All configurations are ready and doesn't require any modifications.
 
 Please find login credentials and IP address to your CSR1kv router below - use PuTTY predefined session:
 
