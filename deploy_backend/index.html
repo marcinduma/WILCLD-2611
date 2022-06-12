@@ -926,6 +926,7 @@ kubectl config get-contexts
 <p>Note down the Node External IP Address and NodePort Service Port Number. These values will be used in next section for deploying the frontend app as the environment variables values ('<strong>BACKEND_HOST</strong>' and '<strong>BACKEND_PORT</strong>').</p>
 </div>
 <h2 id="3-deploy-mqtt-to-db-agent-on-kubernetes">3. Deploy MQTT to DB Agent on Kubernetes:</h2>
+<p>This part of deployment will be done in Public Cloud (AWS) K8s tenant.</p>
 <p>'MQTT to DB Agent' will subscribe to the MQTT Topic and listen to the incoming sensor data from AWS IoT platform. It will then parse the sensor data and insert it into the MariaDB.</p>
 <p><img alt="Rapi" src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/diagram-mqtt.png" /></p>
 <p>The following yaml definition will be used to create the MQTT to DB Agent pods</p>
@@ -1012,7 +1013,12 @@ Download following definition file:</p>
 <pre><code>cat mariadb-ext-service-eks.yaml
 </code></pre>
 <p><img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/cat-mariadb-template.png"></p>
-<p>Change <code>&lt;mariadb-service_LoadBalancer_IP&gt;</code> with IP address of your load balancer IP, replace <strong>198.18.134.XXX</strong> in <em>sed</em> command below with the IP address of LoadBalancer IP allocated to mariadb-service in on-premise Kubernetes Cluster.</p>
+<p>Change <code>&lt;mariadb-service_LoadBalancer_IP&gt;</code> with IP address of your load balancer IP, replace <strong>198.18.134.XXX</strong> in <em>sed</em> command below with the IP address of LoadBalancer IP allocated to mariadb-service in on-premise Kubernetes Cluster. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Copy following command to notepad FIRST, change IP address and then paste it to Terminal.</p>
+</div>
+<p>Command to edit:</p>
 <pre><code>sed -i 's/&lt;mariadb-service_LoadBalancer_IP&gt;/198.18.134.XXX/g' mariadb-ext-service-eks.yaml
 </code></pre>
 <p>Check the manifest file after change of IP:</p>

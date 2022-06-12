@@ -602,7 +602,7 @@ Following screenshot highlights the Port and Node IPs in the command outputs in 
 <p class="admonition-title">Important</p>
 <p>Note down the Node External IP Address of <strong>one of on-prem WORKER</strong> and NodePort Service Port Number.</p>
 </div>
-<p>ConfigMap create command:</p>
+<p>ConfigMap create command - Copy it to notepad FIRST, edit and paste to Terminal:</p>
 <pre><code>kubectl create configmap iot-frontend-config --from-literal=BACKEND_HOST=&lt;NODE_IP&gt; --from-literal=BACKEND_PORT=&lt;PORT&gt;
 </code></pre>
 <h3 id="12-create-new-deployment-iot-frontend">1.2 Create new deployment: iot-frontend</h3>
@@ -681,8 +681,7 @@ Monifest file is represented below:</p>
 <p>Copy service name from your output as marked by green frame on the screenshot above.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Place the DNS name of service copied to your web browser. It may not work imediately. Please wait few minutes if frontend is not visible yet.
-If you use webRDP we recommend to copy URL from RDP to your main PC - use Guacamole interface - explained in Appendix: Guacamole.</p>
+<p>Place the DNS name of service copied to your web browser. It may not work imediately. Please wait few minutes if frontend is not visible yet.</p>
 </div>
 <h3 id="3-open-the-application-dashboard">3. Open the Application Dashboard:</h3>
 <ul>
