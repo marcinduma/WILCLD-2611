@@ -39,7 +39,7 @@ Following screenshot highlights the Port and Node IPs in the command outputs in 
 !!! Important
 	Note down the Node External IP Address of **one of on-prem WORKER** and NodePort Service Port Number.
 
-ConfigMap create command:
+ConfigMap create command - Copy it to notepad FIRST, edit and paste to Terminal:
 
 	kubectl create configmap iot-frontend-config --from-literal=BACKEND_HOST=<NODE_IP> --from-literal=BACKEND_PORT=<PORT>
 
@@ -137,7 +137,7 @@ Copy service name from your output as marked by green frame on the screenshot ab
 
 !!! tip
 	Place the DNS name of service copied to your web browser. It may not work imediately. Please wait few minutes if frontend is not visible yet.
-	If you use webRDP we recommend to copy URL from RDP to your main PC - use Guacamole interface - explained in Appendix: Guacamole.
+	
 
 ### 3. Open the Application Dashboard:
 

@@ -236,19 +236,12 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-cisco-dcloud-dashboard" class="md-nav__link">
-    2. Cisco dCloud dashboard
+  <a href="#2-vpn-connection-to-dcloud-infrastructure" class="md-nav__link">
+    2. VPN connection to dCloud infrastructure
   </a>
   
-    <nav class="md-nav" aria-label="2. Cisco dCloud dashboard">
+    <nav class="md-nav" aria-label="2. VPN connection to dCloud infrastructure">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vpn-connection-to-dcloud-infrastructure" class="md-nav__link">
-    VPN connection to dCloud infrastructure
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#access-session-with-rdp" class="md-nav__link">
@@ -511,19 +504,12 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-cisco-dcloud-dashboard" class="md-nav__link">
-    2. Cisco dCloud dashboard
+  <a href="#2-vpn-connection-to-dcloud-infrastructure" class="md-nav__link">
+    2. VPN connection to dCloud infrastructure
   </a>
   
-    <nav class="md-nav" aria-label="2. Cisco dCloud dashboard">
+    <nav class="md-nav" aria-label="2. VPN connection to dCloud infrastructure">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vpn-connection-to-dcloud-infrastructure" class="md-nav__link">
-    VPN connection to dCloud infrastructure
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#access-session-with-rdp" class="md-nav__link">
@@ -588,19 +574,17 @@
 
 <h1 id="connectivity-check">Connectivity Check</h1>
 <h2 id="1-lab-access-general-description">1. Lab access general description</h2>
-<p>The lab has been built leveraging multiple cloud environments as following:</p>
+<p>The lab has been built leveraging multiple environments as following:</p>
 <ul>
 <li>Amazon Web Services</li>
 <li>Private intrastructure on-prem</li>
 </ul>
 <p>You will have access to Cisco Intersight GUI, where you will see  Kubernetes Clusters deployed On-Prem. In the end you will manage your application that will be deployed in 2 different environments. The infrastructure between On-prem and AWS is ready and functioning. In this lab you will see how to connect microservices together to make whole application work.
 Most of the tasks you will do from Linux Jumphost that is running on-premise. From there you will deploy components of your application in Kubernetes Cluster in AWS and on-prem.</p>
-<h2 id="2-cisco-dcloud-dashboard">2. Cisco dCloud dashboard</h2>
+<h2 id="2-vpn-connection-to-dcloud-infrastructure">2. VPN connection to dCloud infrastructure</h2>
 <p>The entire lab for the session is built using Cisco dCloud environment.
-Details of the session are provided in POD assigned to you. You will find there "Connect VPN" link which allow you connection to dCloud session.</p>
-<h3 id="vpn-connection-to-dcloud-infrastructure">VPN connection to dCloud infrastructure</h3>
-<p>Once you get VPN credentials, open VPN client on CiscoLive PC or your own in case you use BYOD.
-Login to dCloud VPN network, once connected you can proceed.</p>
+Details of the session are provided in POD assigned to you. You will find there "Connect VPN" link which allow you connection to dCloud session.
+When you decide to use BYOD, please connect to VPN using provided credentials.</p>
 <h3 id="access-session-with-rdp">Access session with RDP</h3>
 <p>Once logged to the dCloud session, you will be able to RDP Windows workstation ready to use for you</p>
 <p>Open RDP client and use credentials provided below:</p>
@@ -626,14 +610,18 @@ To access CSR router and Linux jumphost, use Putty installed - shortcut is on De
 </code></pre>
 <h2 id="4-accessing-cisco-intersight-platform">4. Accessing Cisco Intersight Platform</h2>
 <p>Cisco Intersight Platform manages Kuberenetes clusters in the private infrasturcture. You will have access to dedicated instance of Cisco Intersight, from which you will manage your own Kuberenetes Clusters used later on to deploy application.</p>
-<p>Please find login credentials and URL to your IKS instance below:</p>
+<p>Please find login credentials and URL to your IKS instance below:
+Please connect to Cisco Intersight from RDP session.</p>
 <p>URL:</p>
 <pre><code>https://intersight.com/
 </code></pre>
 <p>User name:</p>
 <pre><code>holcld2611+pod'X'@gmail.com
 </code></pre>
-<p>Where X will be provided by proctor </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Intersight username you find in POD details at WILAssistant page.</p>
+</div>
 <p>User password:</p>
 <pre><code>CiscoLive!2022
 </code></pre>

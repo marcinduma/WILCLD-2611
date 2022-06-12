@@ -312,6 +312,8 @@ You need to find the NodePort and Kubernetes Node external IP to access the 'res
 
 ## 3. Deploy MQTT to DB Agent on Kubernetes:
 
+This part of deployment will be done in Public Cloud (AWS) K8s tenant.
+
 'MQTT to DB Agent' will subscribe to the MQTT Topic and listen to the incoming sensor data from AWS IoT platform. It will then parse the sensor data and insert it into the MariaDB.
 
 ![Rapi](https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/diagram-mqtt.png)
@@ -406,7 +408,13 @@ Check string to be replaced by LoadBalancerIP allocated to mariadb-service from 
   
 <img src="https://raw.githubusercontent.com/marcinduma/WILCLD-2611/master/images/cat-mariadb-template.png">
 
-Change `<mariadb-service_LoadBalancer_IP>` with IP address of your load balancer IP, replace **198.18.134.XXX** in *sed* command below with the IP address of LoadBalancer IP allocated to mariadb-service in on-premise Kubernetes Cluster.
+Change `<mariadb-service_LoadBalancer_IP>` with IP address of your load balancer IP, replace **198.18.134.XXX** in *sed* command below with the IP address of LoadBalancer IP allocated to mariadb-service in on-premise Kubernetes Cluster. 
+
+!!! tip
+	Copy following command to notepad FIRST, change IP address and then paste it to Terminal.
+
+
+Command to edit:
 
 	sed -i 's/<mariadb-service_LoadBalancer_IP>/198.18.134.XXX/g' mariadb-ext-service-eks.yaml
 

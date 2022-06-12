@@ -2,7 +2,7 @@
 
 ## 1. Lab access general description
 
-The lab has been built leveraging multiple cloud environments as following:
+The lab has been built leveraging multiple environments as following:
 
 - Amazon Web Services
 - Private intrastructure on-prem
@@ -10,15 +10,11 @@ The lab has been built leveraging multiple cloud environments as following:
 You will have access to Cisco Intersight GUI, where you will see  Kubernetes Clusters deployed On-Prem. In the end you will manage your application that will be deployed in 2 different environments. The infrastructure between On-prem and AWS is ready and functioning. In this lab you will see how to connect microservices together to make whole application work.
 Most of the tasks you will do from Linux Jumphost that is running on-premise. From there you will deploy components of your application in Kubernetes Cluster in AWS and on-prem.
 
-## 2. Cisco dCloud dashboard
+## 2. VPN connection to dCloud infrastructure
 
 The entire lab for the session is built using Cisco dCloud environment.
 Details of the session are provided in POD assigned to you. You will find there "Connect VPN" link which allow you connection to dCloud session.
-
-### VPN connection to dCloud infrastructure
-
-Once you get VPN credentials, open VPN client on CiscoLive PC or your own in case you use BYOD.
-Login to dCloud VPN network, once connected you can proceed.
+When you decide to use BYOD, please connect to VPN using provided credentials.
 
 ### Access session with RDP
 
@@ -61,6 +57,7 @@ User password:
 Cisco Intersight Platform manages Kuberenetes clusters in the private infrasturcture. You will have access to dedicated instance of Cisco Intersight, from which you will manage your own Kuberenetes Clusters used later on to deploy application.
 
 Please find login credentials and URL to your IKS instance below:
+Please connect to Cisco Intersight from RDP session.
 
 URL:
 	
@@ -69,7 +66,8 @@ User name:
 	
 	holcld2611+pod'X'@gmail.com
 
-Where X will be provided by proctor	
+!!! tip
+	Intersight username you find in POD details at WILAssistant page.
 
 User password:
 	

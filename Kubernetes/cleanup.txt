@@ -4,6 +4,8 @@ kubectl delete configmap iot-frontend-config
 kubectl delete secret mariadb-root-pass
 
 
+kubectl config use-context admin@CLUS-IKS-1
+
 IKS cleanup:
 
 kubectl delete svc,deployment --all
