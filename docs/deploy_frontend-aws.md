@@ -69,7 +69,7 @@ spec:
     spec:
       containers:
       - name: "frontend-server"
-        image: "eu.gcr.io/fwardz001-poc-ci1s/frontend_server:latest"
+        image: "eu.gcr.io/fwardz001-poc-ci1s/frontend_server:vegas2022-v5"
         env:
         - name: "BACKEND_HOST"
           valueFrom:
