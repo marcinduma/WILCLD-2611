@@ -422,7 +422,7 @@
 <p>Your Hybrid Cloud App's backend compoents (MariaDB, MQTT DB Agent, and REST API agent) should be up and running. Now let's explore some low level details to understand the application containers and kubernetes better.</p>
 <p><strong>Task 0:</strong> Tasks in this section will be executed in Kubernetes on-premise. Change kubectl context to the correct one.</p>
 <p>Execute command below on linux jumphost:</p>
-<pre><code>    kubectl config use-context admin@on-prem-backend
+<pre><code>    kubectl config use-context admin@CLUS-IKS-1
 </code></pre>
 <p><strong>Task 1:</strong> Find the size of the 'Persistent Volume Claim' used for MariaDB database?</p>
 <p>To check 'CAPACITY' value of PVC execute this command on linux jumphost:</p>
@@ -562,8 +562,8 @@ Use </p>
 <p>and note down the Kubernetes master node's external IP address.</p>
 </li>
 <li>
-<p>Open a web browser on your machine and access the following url (NAT the master node ip before in 1:1 example: 10.200.0.158 -&gt; 198.18.133.158 and then use in the url) -</p>
-<pre><code>http://&lt;kubernetes node's external ip NAT&gt;:&lt;port&gt;/temperature
+<p>Open a web browser on your machine and access the following url</p>
+<pre><code>http://&lt;kubernetes node's external ip&gt;:&lt;port&gt;/temperature
 </code></pre>
 </li>
 <li>

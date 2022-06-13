@@ -6,7 +6,7 @@ Your Hybrid Cloud App's backend compoents (MariaDB, MQTT DB Agent, and REST API 
 
 Execute command below on linux jumphost:
 	
-		kubectl config use-context admin@on-prem-backend
+		kubectl config use-context admin@CLUS-IKS-1
 
 
 **Task 1:** Find the size of the 'Persistent Volume Claim' used for MariaDB database?
@@ -122,9 +122,9 @@ and locate the pod name starting with 'iot-backend-rest-api-agent-' (you may see
 		kubectl get nodes -o wide
 and note down the Kubernetes master node's external IP address.
 
-4. Open a web browser on your machine and access the following url (NAT the master node ip before in 1:1 example: 10.200.0.158 -> 198.18.133.158 and then use in the url) -
+4. Open a web browser on your machine and access the following url
 		
-		http://<kubernetes node's external ip NAT>:<port>/temperature
+		http://<kubernetes node's external ip>:<port>/temperature
 
 5. In the first putty window, run
 		
